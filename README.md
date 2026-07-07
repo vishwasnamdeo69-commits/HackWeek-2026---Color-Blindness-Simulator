@@ -25,8 +25,6 @@ Around 300 million people worldwide experience some form of color vision deficie
 
 ## Screenshots
 
-> _Add screenshots to `/screenshots` and reference them here before publishing._
-
 | Hero | Upload | Comparison |
 |---|---|---|
 | `screenshots/hero.png` | `screenshots/upload.png` | `screenshots/comparison.png` |
