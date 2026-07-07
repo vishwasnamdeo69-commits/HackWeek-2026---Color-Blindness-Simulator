@@ -1,0 +1,78 @@
+:root {
+  /* ---------- Color: surfaces ---------- */
+  --bg: #0a0b0e;
+  --bg-elevated: #101218;
+  --surface: #14161b;
+  --surface-2: #1b1e24;
+  --surface-3: #22252c;
+  --border: #2a2d35;
+  --border-strong: #383c46;
+
+  /* ---------- Color: text ---------- */
+  --text-primary: #edeef2;
+  --text-secondary: #b4b8c2;
+  --text-muted: #7d8290;
+  --text-faint: #565a66;
+
+  /* ---------- Color: accents ---------- */
+  --indigo: #6c6ce5;
+  --indigo-soft: #8a8af0;
+  --purple: #9d7ce8;
+  --cyan: #6fd8e0;
+  --emerald: #6fcf9a;
+
+  --accent-gradient: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 100%);
+  --accent-gradient-soft: linear-gradient(135deg, rgba(108,108,229,0.18) 0%, rgba(157,124,232,0.12) 100%);
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --fs-hero: clamp(2.6rem, 5.4vw, 4.4rem);
+  --fs-h2: clamp(1.7rem, 2.8vw, 2.4rem);
+  --fs-body-lg: 1.15rem;
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.35;
+  --lh-relaxed: 1.65;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 140px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.45);
+  --shadow-glow-indigo: 0 0 0 1px rgba(108,108,229,0.35), 0 12px 40px rgba(108,108,229,0.18);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 160ms;
+  --dur-base: 280ms;
+  --dur-slow: 520ms;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1180px;
+  --container-narrow: 760px;
+}

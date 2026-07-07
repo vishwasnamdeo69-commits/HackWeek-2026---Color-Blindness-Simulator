@@ -1,0 +1,67 @@
+/* ============ SCROLL / ENTRANCE REVEAL ============ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__inner > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroIn var(--dur-slow) var(--ease-out) forwards;
+}
+
+.hero__inner > *:nth-child(1) { animation-delay: 0.05s; }
+.hero__inner > *:nth-child(2) { animation-delay: 0.14s; }
+.hero__inner > *:nth-child(3) { animation-delay: 0.23s; }
+.hero__inner > *:nth-child(4) { animation-delay: 0.32s; }
+
+@keyframes heroIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__inner > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============ AMBIENT BLOBS ============ */
+@keyframes driftA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 60px) scale(1.08); }
+}
+
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.05); }
+}
+
+/* ============ UPLOAD FEEDBACK ============ */
+@keyframes uploadPulse {
+  0% { box-shadow: 0 0 0 0 rgba(111, 207, 154, 0.35); }
+  60% { box-shadow: 0 0 0 14px rgba(111, 207, 154, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(111, 207, 154, 0); }
+}
+
+@keyframes pulseSuccess {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* ============ CROSSFADE FOR SIMULATED LAYER ============ */
+.comparison__canvas-wrap--sim canvas {
+  transition: opacity var(--dur-fast) var(--ease-out);
+}

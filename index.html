@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisionShift — See Through Every Eye</title>
+  <meta name="description" content="A browser-based color blindness simulator. Upload any image and instantly preview it through protanopia, deuteranopia, tritanopia, and achromatopsia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" data-reveal>
+    <div class="navbar__inner">
+      <a href="#top" class="navbar__brand">
+        <span class="navbar__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M3 12c2-4 6-6 9-6s7 2 9 6c-2 4-6 6-9 6s-7-2-9-6Z" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="2.4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="navbar__name">VisionShift</span>
+      </a>
+      <a class="btn btn--ghost btn--sm" href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.03 3.26 9.29 7.79 10.8.57.1.78-.25.78-.55v-1.94c-3.17.69-3.83-1.53-3.83-1.53-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.17 1.82 1.17 3.06 0 4.37-2.67 5.34-5.21 5.62.41.36.77 1.06.77 2.14v3.17c0 .3.21.66.79.55A10.53 10.53 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"/></svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="hero__field" id="heroField" aria-hidden="true"></canvas>
+      <div class="hero__blob hero__blob--a" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--b" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow" data-reveal>Browser-based · No upload to a server · No install</p>
+        <h1 class="hero__headline" data-reveal>Experience your designs<br/>through every eye.</h1>
+        <p class="hero__sub" data-reveal>
+          VisionShift simulates protanopia, deuteranopia, tritanopia, and achromatopsia
+          in real time, entirely on your device, so you can catch accessibility issues
+          before your users do.
+        </p>
+        <div class="hero__actions" data-reveal>
+          <a href="#upload" class="btn btn--primary btn--lg" id="heroCta">
+            Upload an image
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <span class="hero__hint">PNG · JPG · WEBP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UPLOAD ============ -->
+    <section class="section" id="upload" data-reveal>
+      <div class="section__inner section__inner--narrow">
+        <div class="section__head">
+          <h2 class="section__title">Start with an image</h2>
+          <p class="section__desc">Drop a screenshot, a mockup, a chart — anything with color you rely on.</p>
+        </div>
+
+        <div class="dropzone" id="dropZone" tabindex="0" role="button"
+             aria-label="Upload an image by clicking or dragging a file here">
+          <input type="file" id="fileInput" class="visually-hidden" accept="image/png,image/jpeg,image/jpg,image/webp" aria-hidden="true" tabindex="-1" />
+
+          <div class="dropzone__idle">
+            <span class="dropzone__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="dropzone__title">Drag an image here, or click to browse</p>
+            <p class="dropzone__meta">PNG · JPG · WEBP — processed locally, never uploaded</p>
+          </div>
+
+          <div class="dropzone__uploaded" id="dropzoneUploaded" hidden>
+            <span class="dropzone__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 12.5l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="dropzone__filename" id="dropzoneFilename">—</p>
+            <p class="dropzone__meta" id="dropzoneMeta">—</p>
+            <span class="dropzone__swap">Click or drop to replace</span>
+          </div>
+        </div>
+
+        <p class="form-error" id="uploadError" role="alert" hidden></p>
+      </div>
+    </section>
+
+    <!-- ============ WORKSPACE ============ -->
+    <section class="section" id="workspace" data-reveal>
+      <div class="section__inner">
+        <div class="section__head">
+          <h2 class="section__title">Compare</h2>
+          <p class="section__desc">Drag the divider to reveal how the image shifts under the selected mode.</p>
+        </div>
+
+        <div class="workspace-card">
+          <div class="workspace-empty" id="workspaceEmpty">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 15l4.5-4.5a2 2 0 0 1 2.8 0L15 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="8.5" r="1.6" stroke="currentColor" stroke-width="1.6"/></svg>
+            <p>Upload an image to see it come alive here.</p>
+          </div>
+
+          <div class="comparison" id="comparison" hidden>
+            <div class="comparison__track" id="comparisonTrack">
+              <div class="comparison__canvas-wrap comparison__canvas-wrap--base">
+                <canvas id="originalCanvas"></canvas>
+                <span class="comparison__tag comparison__tag--left">Original</span>
+              </div>
+              <div class="comparison__canvas-wrap comparison__canvas-wrap--sim" id="simulatedLayer">
+                <canvas id="simulatedCanvas"></canvas>
+                <span class="comparison__tag comparison__tag--right" id="simTag">Protanopia</span>
+              </div>
+              <div class="comparison__handle" id="comparisonHandle" tabindex="0" role="slider"
+                   aria-label="Comparison position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="comparison__handle-grip">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section class="section" id="controls" data-reveal>
+      <div class="section__inner section__inner--narrow">
+        <div class="section__head">
+          <h2 class="section__title">Vision mode</h2>
+          <p class="section__desc">Switch instantly — every mode is pre-computed the moment you upload.</p>
+        </div>
+
+        <div class="segmented" id="segmentedControl" role="tablist" aria-label="Color vision simulation mode">
+          <span class="segmented__indicator" id="segmentedIndicator" aria-hidden="true"></span>
+          <!-- buttons injected by app.js from constants.SIMULATION_MODES -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section" id="download" data-reveal>
+      <div class="section__inner section__inner--narrow">
+        <div class="download-card">
+          <div class="download-card__text">
+            <h2 class="section__title section__title--sm">Export the result</h2>
+            <p class="section__desc">Saves at the original resolution, named for the active mode.</p>
+          </div>
+          <div class="download-card__actions">
+            <button class="btn btn--ghost" id="resetBtn" type="button">Reset</button>
+            <button class="btn btn--primary" id="downloadBtn" type="button" disabled>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Download image
+            </button>
+          </div>
+          <span class="download-card__success" id="downloadSuccess" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>Built for HackWeek 2026.</p>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub →</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
